@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "~/.local/share/virtualenvs/my-first-fastapi-example-15Qmvn6Y/bin/python",
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=pydantic"
+    ],
+    "python.globalModuleInstallation": true,
+    "python.formatting.provider": "black"
+}
