@@ -1,3 +1,3 @@
-# Pipenv Python Template
+# My First FastApi Example
 
-A default [Pipenv](https://github.com/pypa/pipenv) Python template with [Dependabot](https://dependabot.com/) and [PEP 8 Speaks](https://pep8speaks.com/) Apps.
+Project based on [FastApi](https://github.com/tiangolo/fastapi)

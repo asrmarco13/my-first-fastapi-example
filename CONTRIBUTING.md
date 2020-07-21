@@ -1,6 +1,6 @@
 # Contribuire al progetto
 
-Se vuoi dare il tuo contributo al progetto, per favore ricordati di discuterne sempre con uno degli sviluppatori tramite l'apertura di una [issue](https://github.com/asrmarco13/pipenv-python-template/issues).
+Se vuoi dare il tuo contributo al progetto, per favore ricordati di discuterne sempre con uno degli sviluppatori tramite l'apertura di una [issue](https://github.com/asrmarco13/my-first-fastapi-example/issues).
 
 ### Processi di pull request
 
