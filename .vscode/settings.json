@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "~/.local/share/virtualenvs/my-first-fastapi-example-15Qmvn6Y/bin/python",
+    "python.pythonPath": "~/.local/share/virtualenvs/app-r5_W-4nd/bin/python",
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=pydantic"
     ],
