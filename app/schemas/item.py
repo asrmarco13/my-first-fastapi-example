@@ -23,6 +23,7 @@ class Item(ItemBase):
     """
 
     id: int
+    owner_id: Optional[int]
 
     class Config:
         """
@@ -30,3 +31,11 @@ class Item(ItemBase):
         """
 
         orm_mode = True
+
+
+class ItemUpdate(ItemBase):
+    """
+    Update item properties
+    """
+
+    owner_id: Optional[int]
