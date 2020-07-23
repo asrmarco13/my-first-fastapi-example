@@ -1,7 +1,8 @@
-from typing import List
+from typing import List, Any
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from schemas.user import User, UserCreate
+from schemas.user import User, UserCreate, UserUpdate
 from schemas.item import Item, ItemCreate
 from crud import crud_users, crud_items
 from api.deps import get_db
@@ -59,3 +60,35 @@ def create_user_item(
         raise HTTPException(status_code=404, detail="User not found")
     user_item = crud_users.create_user_item(db, item, user_id)
     return user_item
+
+
+@router.put("/{user_id}", response_model=User)
+def update_user(user_id: int, user: UserUpdate, db: Session = Depends(get_db)) -> User:
+    """
+    Update user if exits
+    otherwise create new user
+    """
+    user_in_db = crud_users.get_user(db, user_id)   
+    if user_in_db:
+        user.email = user.email or user_in_db.email
+        user.name = user.name or user_in_db.name
+        user.surname = user.surname or user_in_db.surname
+        if user.is_active is not None:
+            user.is_active = user.is_active
+        else:
+            user.is_active = user_in_db.is_active
+        user.password = user.password or user_in_db.password
+        return crud_users.update_user(db, user, user_id)
+    return crud_users.create_user(db, user)
+
+
+@router.delete("/{user_id}", response_model=User)
+def remove_user(user_id: int, db: Session = Depends(get_db)) -> Any:
+    """
+    Delete user
+    """
+    user = crud_users.get_user(db, user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    crud_users.remove_user(db, user_id)
+    return JSONResponse("User deleted")

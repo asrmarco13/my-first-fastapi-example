@@ -11,12 +11,12 @@ class UserBase(BaseModel):
     email: str
     name: Optional[str] = None
     surname: Optional[str] = None
-    is_active: bool = True
+    is_active: Optional[bool] = None
 
 
 class UserCreate(UserBase):
     """
-    Properties for create user
+    Properties for create user via Api
     """
 
     password: str
@@ -36,3 +36,11 @@ class User(UserBase):
         """
 
         orm_mode = True
+
+
+class UserUpdate(UserBase):
+    """
+    Properties updates via Api
+    """
+
+    password: Optional[str] = None
