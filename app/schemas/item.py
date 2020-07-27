@@ -4,38 +4,53 @@ from pydantic import BaseModel
 
 class ItemBase(BaseModel):
     """
-    Default properties
+    Shared properties
     """
 
-    title: str
+    title: Optional[str] = None
     description: Optional[str] = None
 
 
 class ItemCreate(ItemBase):
     """
-    Properties for create item
+    Create properties via Api
     """
 
+    title: str
 
-class Item(ItemBase):
+
+class ItemUpdate(ItemBase):
     """
-    Item Class
+    Update properties via Api
+    """
+
+    owner_id: Optional[int] = None
+
+
+class ItemInDBBase(ItemBase):
+    """
+    Default properties shared in DB
     """
 
     id: int
-    owner_id: Optional[int]
+    title: str
+    owner_id: int
 
     class Config:
         """
-        Additional configuration for User class
+        Configuration
         """
 
         orm_mode = True
 
 
-class ItemUpdate(ItemBase):
+class ItemInDB(ItemInDBBase):
     """
-    Update item properties
+    Properties to return stored in DB
     """
 
-    owner_id: Optional[int]
+
+class Item(ItemInDBBase):
+    """
+    Properties to return to client
+    """

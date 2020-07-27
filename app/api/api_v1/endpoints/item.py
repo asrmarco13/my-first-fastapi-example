@@ -4,25 +4,25 @@ from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from crud import crud_items
 from schemas.item import Item, ItemUpdate
-from api.deps import get_db
-
+from schemas.user import UserToken
+from api import deps
 
 router = APIRouter()
 
 
 @router.get("/", response_model=List[Item])
 def read_items(
-    db: Session = Depends(get_db), skip: int = 0, limit: int = 100
+    db: Session = Depends(deps.get_db), skip: int = 0, limit: int = 100
 ) -> List[Item]:
     """
     Get list of items
     """
-    items = crud_items.get_items(db=db, skip=skip, limit=limit)
+    items = crud_items.get_items(db, skip, limit)
     return items
 
 
 @router.get("/{item_id}", response_model=Item)
-def read_item(item_id: int, db: Session = Depends(get_db)) -> Item:
+def read_item(item_id: int, db: Session = Depends(deps.get_db)) -> Item:
     """
     Return an item if exists
     """
@@ -33,7 +33,9 @@ def read_item(item_id: int, db: Session = Depends(get_db)) -> Item:
 
 
 @router.put("/{item_id}", response_model=Item)
-def update_item(item: ItemUpdate, item_id: int, db: Session = Depends(get_db)) -> Item:
+def update_item(
+    item: ItemUpdate, item_id: int, db: Session = Depends(deps.get_db)
+) -> Item:
     """
     Update item if exists
     """
@@ -48,7 +50,11 @@ def update_item(item: ItemUpdate, item_id: int, db: Session = Depends(get_db)) -
 
 
 @router.delete("/{item_id}")
-def remove_item(item_id: int, db: Session = Depends(get_db)) -> Any:
+def remove_item(
+    item_id: int,
+    current_user: UserToken = Depends(deps.get_current_active_user),
+    db: Session = Depends(deps.get_db),
+) -> Any:
     """
     Delete an item if exists
     """
@@ -56,4 +62,4 @@ def remove_item(item_id: int, db: Session = Depends(get_db)) -> Any:
     if not item:
         raise HTTPException(status_code=404, detail="Item not found")
     crud_items.delete_item(db, item_id)
-    return JSONResponse("Item deleted")
+    return JSONResponse("Item deleted by user {}".format(current_user.email))
