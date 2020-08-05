@@ -87,8 +87,8 @@ def update_user(
     return crud_users.create_user(db, user)
 
 
-@router.delete("/{user_id}", response_model=User)
-def remove_user(user_id: int, db: Session = Depends(deps.get_db)) -> Any:
+@router.delete("/{user_id}")
+def remove_user(user_id: int, db: Session = Depends(deps.get_db)) -> JSONResponse:
     """
     Delete user
     """

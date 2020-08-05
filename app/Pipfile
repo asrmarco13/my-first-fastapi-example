@@ -5,23 +5,24 @@ verify_ssl = true
 
 [dev-packages]
 black = "==19.10b0"
-pylint = "*"
 debugpy = "==1.0.0b12"
+pylint = "*"
 rope = "*"
 
 [packages]
+SQLAlchemy = "*"
+bcrypt = "*"
+email_validator = "*"
 fastapi = "*"
-uvicorn = "*"
+passlib = "*"
+psycopg2-binary = "*"
 pydantic = "*"
 pytest = "*"
-tavern = "*"
-SQLAlchemy = "*"
-email_validator = "*"
-psycopg2-binary = "*"
-passlib = "*"
 python-jose = "*"
 python-multipart = "*"
-bcrypt = "*"
+requests = "*"
+tavern = "*"
+uvicorn = "*"
 
 [requires]
 python_version = "3.8"
