@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://gisdb:gisdb@localhost:5432/gisdb"
+SQLALCHEMY_DATABASE_URL = "postgresql://<username>:<password>@<postgres-server>:<port>/<db>"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
