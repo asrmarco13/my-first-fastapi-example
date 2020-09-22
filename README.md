@@ -1,5 +1,15 @@
 # **My First FastApi Example**
 
+<p align="center">
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/blob/master/LICENSE"><img alt="License: GPL3" src="https://img.shields.io/github/license/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Latest commit" src="https://img.shields.io/github/last-commit/asrmarco13/my-first-fastapi-example/master"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/issues"><img alt="Open Issues" src="https://img.shields.io/github/issues/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/issues?q=is%3Aissue+is%3Aclosed"><img alt="Closed Issues" src="https://img.shields.io/github/issues-closed/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/pulls"><img alt="Pull requests" src="https://img.shields.io/github/issues-pr/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Stars" src="https://img.shields.io/github/stars/asrmarco13/my-first-fastapi-example?style=social"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Watchers" src="https://img.shields.io/github/watchers/asrmarco13/my-first-fastapi-example?style=social"></a>
+<p>
+
 ## **Summary**
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
