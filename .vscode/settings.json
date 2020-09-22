@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "~/.local/share/virtualenvs/app-r5_W-4nd/bin/python",
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=pydantic"
+    ],
+    "python.globalModuleInstallation": true,
+    "python.formatting.provider": "black"
+}

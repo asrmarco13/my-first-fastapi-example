@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "==19.10b0"
+debugpy = "==1.0.0b12"
+pylint = "*"
+rope = "*"
+
+[packages]
+SQLAlchemy = "*"
+bcrypt = "*"
+email_validator = "*"
+fastapi = "*"
+passlib = "*"
+psycopg2-binary = "*"
+pydantic = "*"
+pytest = "*"
+python-dotenv = "*"
+python-jose = "*"
+python-multipart = "*"
+requests = "*"
+tavern = "*"
+uvicorn = "*"
+
+[requires]
+python_version = "3.8"
