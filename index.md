@@ -1,37 +1,74 @@
-## Welcome to GitHub Pages
+# **My First FastApi Example**
 
-You can use the [editor on GitHub](https://github.com/asrmarco13/my-first-fastapi-example/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<p align="center">
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/blob/master/LICENSE"><img alt="License: GPL3" src="https://img.shields.io/github/license/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Latest commit" src="https://img.shields.io/github/last-commit/asrmarco13/my-first-fastapi-example/master"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/issues"><img alt="Open Issues" src="https://img.shields.io/github/issues/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/issues?q=is%3Aissue+is%3Aclosed"><img alt="Closed Issues" src="https://img.shields.io/github/issues-closed/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example/pulls"><img alt="Pull requests" src="https://img.shields.io/github/issues-pr/asrmarco13/my-first-fastapi-example"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Stars" src="https://img.shields.io/github/stars/asrmarco13/my-first-fastapi-example?style=social"></a>
+  <a href="https://github.com/asrmarco13/my-first-fastapi-example"><img alt="Watchers" src="https://img.shields.io/github/watchers/asrmarco13/my-first-fastapi-example?style=social"></a>
+<p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## **Summary**
+1. [Introduction](#introduction)
+2. [Prerequisites](#prerequisites)
+3. [Execute project](#execute-project)
+4. [Interactive api docs](#interactive-api-docs)
+5. [Testing](#testing)
 
-### Markdown
+### **Introduction**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+An example project based on [FastApi](https://fastapi.tiangolo.com/). Minimum Python version is 3.8
 
-```markdown
-Syntax highlighted code block
+### **Prerequisites**
 
-# Header 1
-## Header 2
-### Header 3
+Create a random secret key that will be used to sign the JWT tokens. To generate a secure random secret key use the command:
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```shell
+openssl rand -hex 32
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Copy the output to the variable **SECRET_KEY** in ***app/core/settings.py***
 
-### Jekyll Themes
+Install [PostgreSQL](https://www.postgresql.org/download/) or use the [docker image](https://hub.docker.com/_/postgres).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/asrmarco13/my-first-fastapi-example/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Create an instance DB and put the connection infos in ***.env*** file.
 
-### Support or Contact
+Install the tool [Pipenv](https://github.com/pypa/pipenv).
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Go to ***app*** folder and run:
+
+```shell
+pipenv install --dev
+```
+
+### **Execute project**
+
+Go to ***app*** folder and run:
+
+```shell
+python app.py
+```
+
+Open your browser at http://127.0.0.1:8080/hello
+
+You will see the JSON response as:
+
+```json
+{"message": "Welcome to my FastApi example"}
+```
+
+### **Interactive api docs**
+
+Now go to http://127.0.0.1:8000/docs.
+
+You will see the automatic interactive API documentation (provided by [Swagger UI](https://github.com/swagger-api/swagger-ui)).
+
+### **Testing**
+
+Go to ***app/tests*** folder and run:
+
+```shell
+pytest
+```
